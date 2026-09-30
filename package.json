@@ -1,0 +1,22 @@
+{
+  "name": "oracleiptv.waranas",
+  "version": "1.0.0",
+  "private": false,
+  "type": "module",
+  "main": "./main.index.ts",
+  "types": "./main.index.ts",
+  "scripts": {
+    "dev": "npm run cf:typegen && wrangler dev",
+    "cf:typegen": "wrangler types",
+    "typecheck": "npm run cf:typegen && tsc --noEmit",
+    "build": "npm run typecheck && wrangler deploy --dry-run",
+    "deploy": "npm run typecheck && wrangler deploy"
+  },
+  "dependencies": {
+    "waranas": "github:z0374/waranasLib#js"
+  },
+  "devDependencies": {
+    "typescript": "^5.8.3",
+    "wrangler": "^4.134.0"
+  }
+}
